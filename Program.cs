@@ -14,9 +14,15 @@ namespace GuessingGame {
 
             int guessLimit = 0;
 
+            //prompting user to guess a difficulty
+
             Console.WriteLine ("Select difficulty: Easy, Medium, Hard, Cheater");
 
+            //difficulty is equal to whatever user typees into command line
+
             string difficulty = Console.ReadLine ();
+
+            //if block redifining guessLimit's value based on the difficulty entered
 
             if (difficulty == "Easy") {
                 guessLimit = 8;
@@ -29,6 +35,8 @@ namespace GuessingGame {
             } else {
                 difficulty = Console.ReadLine ();
             }
+
+            //this bypassses guessLimit's difficulty defined in the if block about and as long as the difficulty is cheater you are allowed to guess until the answer is correct
 
             if (difficulty == "Cheater") {
                 while (true) {
@@ -46,10 +54,20 @@ namespace GuessingGame {
                     guessesGiven++;
                 }
             }
+
+            //saying while the guess limit is greater than 0(guessesGiven's default value) run this logic
+
             while (guessLimit > guessesGiven) {
 
+                //message to the user on the command line informing them how many guesses are left 
+
                 Console.WriteLine ($"Guess the secret number. Your guess ({guessesGiven + 1})");
+
+                //prompts user to guess a number
+
                 string userGuess = Console.ReadLine ();
+
+                //turns the userGuess back into  an integer
                 int userGuessInt = Int32.Parse (userGuess);
 
                 if (userGuessInt == secretNumber) {
